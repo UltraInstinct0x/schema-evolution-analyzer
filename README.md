@@ -98,23 +98,22 @@ The Schema Evolution Analyzer can be configured using a YAML configuration file.
 
 ```
 schema-evolution-analyzer/
-├── schema_analyzer/
-│   ├── __init__.py
-│   ├── analyzer.py
-│   ├── config.py
-│   ├── models.py
-│   ├── storage/
-│   │   ├── __init__.py
-│   │   ├── base.py
-│   │   └── postgresql.py
-│   └── utils/
-│       ├── __init__.py
-│       └── helpers.py
-├── tests/
-│   ├── __init__.py
-│   ├── test_analyzer.py
-│   ├── test_config.py
-│   └── test_storage.py
+├── schema_analyzer
+│   ├── analyze.py
+│   ├── logging.py
+│   ├── metrics.py
+│   ├── security.py
+│   ├── storage.py
+│   └── utills
+│       ├── diff_generator.py
+│       ├── impact_analyzer.py
+│       ├── query_validator.py
+│       └── schema_validator.py
+├── tests
+│   └── performance
+│       └── locustfile.py
+├── config
+│   └── analyzer.yaml
 ├── config.example.yaml
 ├── requirements.txt
 ├── Dockerfile
