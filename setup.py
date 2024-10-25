@@ -6,12 +6,12 @@ with open("README.md", "r", encoding="utf-8") as fh:
 setup(
     name="schema-evolution-analyzer",
     version="1.0.0",
-    author="Your Name",
-    author_email="your.email@example.com",
+    author="ultrainstinct0x",
+    author_email="ultrainstinct0x@gmail.com",
     description="A tool for analyzing database schema evolution patterns",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/yourusername/schema-evolution-analyzer",
+    url="https://github.com/ultrainstinct0x/schema-evolution-analyzer",
     packages=find_packages(),
     classifiers=[
         "Development Status :: 5 - Production/Stable",

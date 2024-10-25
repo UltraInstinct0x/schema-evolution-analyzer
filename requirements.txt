@@ -8,6 +8,7 @@ locust==2.15.1
 psycopg2-binary==2.9.3
 pyyaml==6.0
 pytest==7.1.2
-sqlparse==0.4.2
 networkx==2.8.2
 typing-extensions==4.2.0
+jsonschema==4.17.3
+sqlparse==0.4.4
