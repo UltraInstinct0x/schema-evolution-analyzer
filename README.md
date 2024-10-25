@@ -26,7 +26,7 @@ pip install schema-evolution-analyzer
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/schema-evolution-analyzer.git
+   git clone https://github.com/ultrainstinct0x/schema-evolution-analyzer.git
    cd schema-evolution-analyzer
    ```
 
@@ -48,7 +48,7 @@ pip install schema-evolution-analyzer
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/schema-evolution-analyzer.git
+   git clone https://github.com/ultrainstinct0x/schema-evolution-analyzer.git
    cd schema-evolution-analyzer
    ```
 
