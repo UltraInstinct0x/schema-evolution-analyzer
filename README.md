@@ -1,6 +1,6 @@
 # Schema Evolution Analyzer
 
-The Schema Evolution Analyzer is a tool that helps you understand and manage changes in your database schema over time. It provides insights into the impact of schema changes on existing queries and applications, making it easier to evolve your database schema with confidence.
+The Schema Evolution Analyzer is a powerful tool that helps you understand and manage changes in your database schema over time. It provides comprehensive insights into the impact of schema changes on existing queries and applications, making it easier to evolve your database schema with confidence.
 
 ## Features
 
@@ -8,17 +8,20 @@ The Schema Evolution Analyzer is a tool that helps you understand and manage cha
 - Identify queries and applications affected by schema changes
 - Suggest optimizations and modifications for impacted queries
 - Integrate with your existing database change management process
-- Provide a standalone version for quick and easy analysis
+- Comprehensive monitoring and logging for production environments
+- Asynchronous analysis with concurrent processing for improved performance
 
-## Getting Started
+## Installation
 
-### Prerequisites
+### pip Installation
 
-- Python 3.9 or higher
-- PostgreSQL (if using the PostgreSQL storage backend)
-- Docker (optional)
+You can install the Schema Evolution Analyzer using pip:
 
-### Installation
+```bash
+pip install schema-evolution-analyzer
+```
+
+### Local Installation
 
 1. Clone the repository:
 
@@ -37,82 +40,61 @@ The Schema Evolution Analyzer is a tool that helps you understand and manage cha
 3. Install the required dependencies:
 
    ```bash
-   pip install -r requirements.txt
+   make install
    ```
 
-### Configuration
+### Docker Installation
 
-1. Create a copy of the `config.example.yaml` file and rename it to `config.yaml`:
+1. Clone the repository:
 
    ```bash
-   cp config.example.yaml config.yaml
+   git clone https://github.com/yourusername/schema-evolution-analyzer.git
+   cd schema-evolution-analyzer
    ```
 
-2. Open `config.yaml` and modify the configuration settings according to your environment.
-
-### Usage
-
-#### Local Usage
-
-1. Import the necessary classes in your Python script:
-
-   ```python
-   from schema_analyzer import SchemaEvolutionAnalyzer, AnalyzerConfig
-   ```
-
-2. Load the configuration and create an instance of the analyzer:
-
-   ```python
-   config = AnalyzerConfig.from_file("config.yaml")
-   analyzer = SchemaEvolutionAnalyzer(config)
-   ```
-
-3. Analyze your schema evolution:
-
-   ```python
-   result = analyzer.analyze_evolution(old_schema, new_schema)
-   print(result)
-   ```
-
-   Replace `old_schema` and `new_schema` with your actual schema definitions.
-
-#### Docker Usage
-
-1. Build the Docker image:
+2. Build the Docker image:
 
    ```bash
    docker build -t schema-evolution-analyzer .
    ```
 
-2. Run the Schema Evolution Analyzer using Docker:
+## Usage
 
-   ```bash
-   docker run -v $(pwd)/config.yaml:/app/config.yaml schema-evolution-analyzer
-   ```
+### Command Line Interface
 
-   This command mounts the `config.yaml` file from your local directory into the container.
-
-3. The analyzer will process the schema evolution and provide the analysis results.
-
-### Running Tests
-
-#### Local Testing
-
-To run the test suite locally, use the following command:
+The Schema Evolution Analyzer provides a command-line interface for easy usage:
 
 ```bash
-pytest tests/
+schema-evolution-analyzer --config config.yaml
 ```
 
-#### Docker Testing
+### Python API
 
-To run the test suite using Docker, use the following command:
+You can also use the Schema Evolution Analyzer programmatically in your Python code:
+
+```python
+from schema_analyzer import SchemaEvolutionAnalyzer, AnalyzerConfig
+
+config = AnalyzerConfig.from_file("config.yaml")
+analyzer = SchemaEvolutionAnalyzer(config)
+
+result = analyzer.analyze_evolution(old_schema, new_schema)
+print(result)
+```
+
+### Docker Usage
+
+Run the Schema Evolution Analyzer using Docker:
 
 ```bash
-docker run schema-evolution-analyzer pytest tests/
+docker run -v $(pwd)/config.yaml:/app/config.yaml schema-evolution-analyzer
 ```
 
-## Repository Structure
+## Configuration
+
+The Schema Evolution Analyzer can be configured using a YAML configuration file. An example configuration file is provided in `config.example.yaml`. Copy this file to `config.yaml` and modify it according to your needs.
+
+## Project Structure
 
 ```
 schema-evolution-analyzer/
@@ -136,27 +118,49 @@ schema-evolution-analyzer/
 ├── config.example.yaml
 ├── requirements.txt
 ├── Dockerfile
+├── setup.py
+├── Makefile
+├── CONTRIBUTING.md
+├── CHANGELOG.md
 ├── README.md
 └── LICENSE
 ```
 
-- `schema_analyzer/`: Contains the main package code.
-  - `analyzer.py`: Implements the core schema evolution analysis logic.
-  - `config.py`: Handles configuration management.
-  - `models.py`: Defines data models and schemas used in the analyzer.
-  - `storage/`: Contains storage backend implementations.
-  - `utils/`: Contains utility functions and helper modules.
-- `tests/`: Contains test cases for the package.
-- `config.example.yaml`: An example configuration file template.
-- `requirements.txt`: Lists the required Python dependencies.
-- `Dockerfile`: Defines the Docker image for the Schema Evolution Analyzer.
-- `README.md`: Provides an overview of the project and instructions for getting started.
-- `LICENSE`: Specifies the license under which the project is distributed.
+```mermaid
+graph TD;
+    schema_analyzer-->analyzer.py;
+    schema_analyzer-->config.py;
+    schema_analyzer-->models.py;
+    schema_analyzer-->storage;
+    storage-->base.py;
+    storage-->postgresql.py;
+    schema_analyzer-->utils;
+    utils-->helpers.py;
+    tests-->test_analyzer.py;
+    tests-->test_config.py;
+    tests-->test_storage.py;
+```
 
 ## Contributing
 
-Contributions are welcome! If you find a bug or have a feature request, please open an issue on the GitHub repository. If you'd like to contribute code, please fork the repository and submit a pull request.
+Contributions are welcome! Please see the [CONTRIBUTING.md](CONTRIBUTING.md) file for guidelines on how to contribute to this project.
+
+## Testing
+
+To run the test suite, use the following command:
+
+```bash
+make test
+```
 
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Changelog
+
+See the [CHANGELOG.md](CHANGELOG.md) file for a list of changes in each release.
+
+## Support
+
+If you encounter any issues or have questions, please open an issue on the GitHub repository.

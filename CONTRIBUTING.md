@@ -43,7 +43,6 @@ If you find a bug or have a feature request, please open an issue on the GitHub 
 
 If you have any questions or need further assistance, feel free to reach out to the maintainers:
 
-- John Doe (john@example.com)
-- Jane Smith (jane@example.com)
+- Goku (ultrainstinct0x@gmail.com)
 
 Thank you for your contributions!
