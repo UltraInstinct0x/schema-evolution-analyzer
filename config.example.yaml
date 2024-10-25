@@ -1,0 +1,22 @@
+# Database configuration
+database:
+  host: localhost
+  port: 5432
+  name: schema_evolution
+  user: postgres
+  password: your_password
+
+# Storage backend configuration
+storage:
+  backend: postgresql
+  connection_string: postgresql://postgres:your_password@localhost:5432/schema_evolution
+
+# Logging configuration
+logging:
+  level: INFO
+  format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+# Analysis configuration
+analysis:
+  similarity_threshold: 0.8
+  impact_threshold: 0.5

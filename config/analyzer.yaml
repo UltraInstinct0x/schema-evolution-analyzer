@@ -1,0 +1,20 @@
+monitoring:
+  prometheus_port: 9090
+  metrics_enabled: true
+
+logging:
+  level: INFO
+  elasticsearch_host: http://elasticsearch:9200
+  elasticsearch_index_prefix: schema-analyzer
+  sentry_dsn: your-sentry-dsn
+  environment: production
+
+security:
+  secret_key: your-secret-key
+  algorithm: HS256
+  access_token_expire_minutes: 30
+
+performance:
+  request_timeout: 30
+  max_payload_size: 10485760  # 10MB
+  rate_limit: 100  # requests per minute

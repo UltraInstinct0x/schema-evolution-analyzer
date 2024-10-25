@@ -16,6 +16,7 @@ The Schema Evolution Analyzer is a tool that helps you understand and manage cha
 
 - Python 3.9 or higher
 - PostgreSQL (if using the PostgreSQL storage backend)
+- Docker (optional)
 
 ### Installation
 
@@ -51,6 +52,8 @@ The Schema Evolution Analyzer is a tool that helps you understand and manage cha
 
 ### Usage
 
+#### Local Usage
+
 1. Import the necessary classes in your Python script:
 
    ```python
@@ -73,12 +76,40 @@ The Schema Evolution Analyzer is a tool that helps you understand and manage cha
 
    Replace `old_schema` and `new_schema` with your actual schema definitions.
 
+#### Docker Usage
+
+1. Build the Docker image:
+
+   ```bash
+   docker build -t schema-evolution-analyzer .
+   ```
+
+2. Run the Schema Evolution Analyzer using Docker:
+
+   ```bash
+   docker run -v $(pwd)/config.yaml:/app/config.yaml schema-evolution-analyzer
+   ```
+
+   This command mounts the `config.yaml` file from your local directory into the container.
+
+3. The analyzer will process the schema evolution and provide the analysis results.
+
 ### Running Tests
 
-To run the test suite, use the following command:
+#### Local Testing
+
+To run the test suite locally, use the following command:
 
 ```bash
 pytest tests/
+```
+
+#### Docker Testing
+
+To run the test suite using Docker, use the following command:
+
+```bash
+docker run schema-evolution-analyzer pytest tests/
 ```
 
 ## Repository Structure
@@ -104,6 +135,7 @@ schema-evolution-analyzer/
 │   └── test_storage.py
 ├── config.example.yaml
 ├── requirements.txt
+├── Dockerfile
 ├── README.md
 └── LICENSE
 ```
@@ -117,6 +149,7 @@ schema-evolution-analyzer/
 - `tests/`: Contains test cases for the package.
 - `config.example.yaml`: An example configuration file template.
 - `requirements.txt`: Lists the required Python dependencies.
+- `Dockerfile`: Defines the Docker image for the Schema Evolution Analyzer.
 - `README.md`: Provides an overview of the project and instructions for getting started.
 - `LICENSE`: Specifies the license under which the project is distributed.
 
